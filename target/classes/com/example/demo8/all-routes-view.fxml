@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.AllRoutesController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #0b1628;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="0"
+              style="-fx-background-color: #080f1e; -fx-padding: 0 32; -fx-min-height: 60; -fx-border-color: rgba(79,195,247,0.12); -fx-border-width: 0 0 1 0;">
+            <Button text="← Назад" onAction="#handleBack"
+                    style="-fx-background-color: transparent; -fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-padding: 8 16; -fx-border-color: rgba(79,195,247,0.3); -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 0 20;">
+                <Label text="🗺" style="-fx-font-size: 18px;"/>
+                <Label text="Кратчайшие маршруты между всеми городами"
+                       style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="statusLabel" text="Загрузка..."
+                   style="-fx-text-fill: rgba(255,255,255,0.5); -fx-font-size: 12px;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="0" style="-fx-background-color: #0b1628;">
+            <!-- Фильтр -->
+            <HBox spacing="12" alignment="CENTER_LEFT"
+                  style="-fx-padding: 16 32; -fx-background-color: #131f3e; -fx-border-color: rgba(79,195,247,0.1); -fx-border-width: 0 0 1 0;">
+                <Label text="🔍" style="-fx-font-size: 16px;"/>
+                <TextField fx:id="filterField" promptText="Фильтр по городу..." prefWidth="320"
+                           style="-fx-background-color: rgba(255,255,255,0.08); -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.4); -fx-font-size: 13px; -fx-padding: 8 12; -fx-background-radius: 6; -fx-border-color: rgba(79,195,247,0.2); -fx-border-width: 1; -fx-border-radius: 6;"/>
+                <Label text="Маршруты отсортированы по минимальной цене"
+                       style="-fx-text-fill: rgba(255,255,255,0.4); -fx-font-size: 12px;"/>
+            </HBox>
+
+            <!-- Заголовок таблицы -->
+            <HBox style="-fx-padding: 8 14; -fx-background-color: rgba(79,195,247,0.08);">
+                <Label text="Маршрут" style="-fx-text-fill: #4fc3f7; -fx-font-size: 11px; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                <Label text="Тип" style="-fx-text-fill: #4fc3f7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-min-width: 100;"/>
+                <Label text="Вылет" style="-fx-text-fill: #4fc3f7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-min-width: 130;"/>
+                <Label text="Цена" style="-fx-text-fill: #4fc3f7; -fx-font-size: 11px; -fx-font-weight: bold; -fx-min-width: 90;"/>
+                <Label text="" style="-fx-min-width: 70;"/>
+            </HBox>
+
+            <!-- Список маршрутов -->
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS"
+                        style="-fx-background: transparent; -fx-background-color: transparent;">
+                <VBox fx:id="routesBox" spacing="4" style="-fx-padding: 12 32; -fx-background-color: #0b1628;"/>
+            </ScrollPane>
+        </VBox>
+    </center>
+</BorderPane>

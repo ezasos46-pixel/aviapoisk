@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.ProfileController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #0b1628;">
+
+    <top>
+        <HBox fx:id="profileHeader" alignment="CENTER_LEFT" spacing="0"
+              style="-fx-background-color: #080f1e; -fx-padding: 0 32; -fx-min-height: 60; -fx-border-color: rgba(79,195,247,0.12); -fx-border-width: 0 0 1 0;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="✈" style="-fx-text-fill: #4fc3f7; -fx-font-size: 22px;"/>
+                <Label text="АвиаПоиск" style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Личный кабинет"
+                   style="-fx-text-fill: rgba(180,200,255,0.6); -fx-font-size: 13px;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="← На главную" onAction="#handleBack"
+                    style="-fx-background-color: transparent; -fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-padding: 8 16; -fx-border-color: rgba(79,195,247,0.3); -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="0" style="-fx-background-color: #0b1628;">
+
+            <TabPane fx:id="profileTabPane" style="-fx-background-color: #0b1628;" VBox.vgrow="ALWAYS">
+
+            <!-- Вкладка 1: Поиск бронирования -->
+            <Tab text="Поиск бронирования" closable="false">
+                <VBox spacing="24" style="-fx-padding: 40; -fx-background-color: #0b1628;" alignment="TOP_CENTER">
+                    <Label text="Поиск по номеру бронирования"
+                           style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                    <VBox spacing="14" maxWidth="560"
+                          style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 28; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;"
+                          alignment="CENTER">
+                        <Label text="НОМЕР БРОНИРОВАНИЯ" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <HBox spacing="10" alignment="CENTER">
+                            <TextField fx:id="bookingSearchField" prefWidth="340" promptText="Например: ABC123"/>
+                            <Button text="Найти" onAction="#handleSearchBooking"
+                                    style="-fx-background-color: #4fc3f7; -fx-text-fill: #0b1628; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 9 20; -fx-background-radius: 6;"/>
+                        </HBox>
+                    </VBox>
+                    <VBox fx:id="bookingResultBox" spacing="10" maxWidth="700"
+                          style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 20; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;"
+                          visible="false"/>
+                </VBox>
+            </Tab>
+
+            <!-- Вкладка 2: История -->
+            <Tab text="Мои билеты" closable="false">
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                            style="-fx-background: transparent; -fx-background-color: #0b1628;">
+                    <VBox spacing="16" style="-fx-padding: 32 40; -fx-background-color: #0b1628;" alignment="TOP_CENTER">
+                        <Label text="Мои билеты"
+                               style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                        <VBox fx:id="bookingsList" spacing="12" maxWidth="900"/>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- Вкладка: Статистика -->
+            <Tab text="📊  Статистика" closable="false">
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                            style="-fx-background: transparent; -fx-background-color: #0b1628;">
+                    <VBox spacing="0" style="-fx-background-color: #0b1628;">
+                        <!-- hero -->
+                        <VBox fx:id="statsHeroBox" alignment="CENTER" spacing="6"
+                              style="-fx-padding: 40 40 32 40; -fx-background-color: linear-gradient(to bottom, #0d1b3e, #0b1628);"/>
+                        <!-- карточки -->
+                        <HBox fx:id="statsCardsBox" spacing="14"
+                              style="-fx-padding: 0 40 24 40;"/>
+                        <!-- детали -->
+                        <VBox fx:id="statsDetailsBox" spacing="10" style="-fx-padding: 0 40 40 40;"/>
+                    </VBox>
+                </ScrollPane>
+            </Tab>
+
+            <!-- Вкладка 3: Профиль -->
+            <Tab text="Личная информация" closable="false">
+                <VBox spacing="24" style="-fx-padding: 40; -fx-background-color: #0b1628;" alignment="CENTER">
+                    <Label text="Личная информация"
+                           style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+                    <VBox spacing="16" maxWidth="480" alignment="CENTER"
+                          style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 28; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;">
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label text="EMAIL" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <TextField fx:id="emailField" prefWidth="400"/>
+                        </VBox>
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label text="ТЕЛЕФОН" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <TextField fx:id="phoneField" prefWidth="400"/>
+                        </VBox>
+                        <Button text="Сохранить изменения" onAction="#handleSaveProfile"
+                                style="-fx-background-color: #4fc3f7; -fx-text-fill: #0b1628; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10 30; -fx-background-radius: 6;"/>
+                    </VBox>
+                    <HBox spacing="12" alignment="CENTER">
+                        <Button text="Выйти из аккаунта" onAction="#handleLogout"
+                                style="-fx-background-color: rgba(255,255,255,0.08); -fx-text-fill: rgba(180,200,255,0.7); -fx-font-size: 13px; -fx-padding: 8 20; -fx-background-radius: 6; -fx-border-color: rgba(255,255,255,0.15); -fx-border-width: 1; -fx-border-radius: 6;"/>
+                        <Button text="Удалить аккаунт" onAction="#handleDeleteAccount"
+                                style="-fx-background-color: rgba(229,57,53,0.15); -fx-text-fill: #ef9a9a; -fx-font-size: 13px; -fx-padding: 8 20; -fx-background-radius: 6; -fx-border-color: rgba(229,57,53,0.3); -fx-border-width: 1; -fx-border-radius: 6;"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+        </TabPane>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body, #map { margin: 0; padding: 0; width: 100%; height: 100%; background: #0d1b3e; }
+  .city-hint {
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+    text-shadow: 0 1px 3px #000;
+  }
+  .city-popup { width: 220px; }
+  .city-popup img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+</style>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=c74a9be2-2ed8-42e3-a8eb-c07dc9c2baba"></script>
+</head>
+<body>
+<div id="map"></div>
+<script>
+let map;
+let routeObject;
+let cityObjects = [];
+let citiesCollection;
+
+function clearMapObjects() {
+  if (!map) return;
+  if (routeObject) {
+    map.geoObjects.remove(routeObject);
+    routeObject = null;
+  }
+  cityObjects.forEach(function (obj) { map.geoObjects.remove(obj); });
+  cityObjects = [];
+  if (citiesCollection) {
+    map.geoObjects.remove(citiesCollection);
+    citiesCollection = null;
+  }
+}
+
+window.drawRoute = function(points) {
+  if (!map) return;
+  clearMapObjects();
+  if (!points || points.length === 0) return;
+
+  const waypoints = points.map(function (p) { return [p[1], p[0]]; });
+  routeObject = new ymaps.Polyline(waypoints, {}, {
+    strokeColor: "#ff2d2d",
+    strokeWidth: 6,
+    strokeOpacity: 0.95
+  });
+  map.geoObjects.add(routeObject);
+  map.setBounds(routeObject.geometry.getBounds(), { checkZoomRange: true, zoomMargin: 30 });
+
+  citiesCollection = new ymaps.GeoObjectCollection();
+  points.forEach(function(p, idx) {
+    const color = p[2];
+    const cityName = p[3];
+    const photoUrl = p[4] || "";
+    const placemark = new ymaps.Placemark([p[1], p[0]], {
+      iconCaption: cityName,
+      hintContent: cityName,
+      balloonContent: '<div class="city-popup"><b>' + cityName + '</b>' +
+          (photoUrl ? '<img src="' + photoUrl + '" alt="' + cityName + '">' : '') +
+          '</div>'
+    }, {
+      preset: idx === 0 ? "islands#blueCircleDotIconWithCaption" :
+              (idx === points.length - 1 ? "islands#redCircleDotIconWithCaption" : "islands#yellowCircleDotIconWithCaption"),
+      iconColor: color
+    });
+    placemark.events.add('click', function() { placemark.balloon.open(); });
+    citiesCollection.add(placemark);
+    cityObjects.push(placemark);
+  });
+  map.geoObjects.add(citiesCollection);
+};
+
+ymaps.ready(function() {
+  map = new ymaps.Map('map', {
+    center: [61, 90],
+    zoom: 3,
+    controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
+  });
+});
+</script>
+</body>
+</html>

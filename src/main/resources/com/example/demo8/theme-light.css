@@ -1,0 +1,224 @@
+/* Светлая голубая тема — файл подключается только в LIGHT-режиме */
+
+/* ===== COMBOBOX ===== */
+.light-theme .combo-box,
+.combo-box {
+    -fx-background-color: #f0f7fa;
+    -fx-border-color: #b0d4e8;
+}
+.light-theme .combo-box .arrow,
+.combo-box .arrow { -fx-background-color: #5a6e8a; }
+.light-theme .combo-box:focused, .light-theme .combo-box:showing,
+.combo-box:focused, .combo-box:showing { -fx-border-color: #0288d1; }
+.light-theme .combo-box-base > .label,
+.combo-box-base > .label { -fx-text-fill: #1a2a4f; }
+.light-theme .combo-box .list-view,
+.combo-box .list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1;
+}
+.light-theme .combo-box .list-cell,
+.combo-box .list-cell { -fx-text-fill: #1a2a4f; }
+.light-theme .combo-box .list-cell:hover,
+.combo-box .list-cell:hover { -fx-background-color: rgba(2,136,209,0.12); }
+.light-theme .combo-box .list-cell:filled:selected,
+.combo-box .list-cell:filled:selected { -fx-background-color: rgba(2,136,209,0.22); }
+
+/* ===== DATEPICKER (поле) ===== */
+.light-theme .date-picker,
+.date-picker {
+    -fx-background-color: #f0f7fa;
+    -fx-border-color: #b0d4e8;
+}
+.light-theme .date-picker .text-field,
+.date-picker .text-field {
+    -fx-text-fill: #1a2a4f;
+    -fx-prompt-text-fill: #5a6e8a;
+    -fx-control-inner-background: #f0f7fa;
+}
+.light-theme .date-picker:focused,
+.date-picker:focused { -fx-border-color: #0288d1; }
+.light-theme .date-picker .arrow-button .arrow,
+.date-picker .arrow-button .arrow { -fx-background-color: #5a6e8a; }
+
+/* ===== КАЛЕНДАРЬ (popup — без предка .light-theme) ===== */
+.date-picker-popup {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #0288d1;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(2,136,209,0.2), 16, 0, 0, 6);
+}
+.date-picker-popup > * {
+    -fx-background-color: #ffffff;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #e8f4f8;
+    -fx-padding: 8 12;
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #1a2a4f;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+.date-picker-popup .spinner {
+    -fx-background-color: #e8f4f8;
+}
+.date-picker-popup .spinner .button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.date-picker-popup .spinner .button:hover {
+    -fx-background-color: rgba(2,136,209,0.15);
+    -fx-background-radius: 4;
+}
+.date-picker-popup .spinner .left-button .left-arrow,
+.date-picker-popup .spinner .right-button .right-arrow {
+    -fx-background-color: #0288d1;
+}
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #ffffff;
+    -fx-padding: 4 8 8 8;
+}
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: rgba(90,110,138,0.5);
+    -fx-font-size: 11px;
+}
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: #0288d1;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #1a2a4f;
+    -fx-font-size: 13px;
+    -fx-alignment: center;
+    -fx-background-radius: 4;
+}
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: rgba(2,136,209,0.15);
+    -fx-text-fill: #1a2a4f;
+}
+.date-picker-popup .day-cell.today {
+    -fx-border-color: #0288d1;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-text-fill: #0288d1;
+    -fx-font-weight: bold;
+}
+.date-picker-popup .day-cell.selected,
+.date-picker-popup .selected {
+    -fx-background-color: #0288d1;
+    -fx-background-radius: 4;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+.date-picker-popup .day-cell.outside-month,
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-text-fill: rgba(90,110,138,0.4);
+}
+.date-picker-popup .day-cell.disabled,
+.date-picker-popup .day-cell:disabled {
+    -fx-text-fill: rgba(90,110,138,0.25);
+}
+
+/* ===== TEXTFIELD ===== */
+.light-theme .text-field, .light-theme .password-field,
+.text-field, .password-field {
+    -fx-background-color: #f0f7fa;
+    -fx-text-fill: #1a2a4f;
+    -fx-prompt-text-fill: #5a6e8a;
+    -fx-border-color: #b0d4e8;
+    -fx-control-inner-background: #f0f7fa;
+    -fx-control-inner-background-alt: #f0f7fa;
+    -fx-highlight-fill: rgba(2,136,209,0.25);
+    -fx-highlight-text-fill: #1a2a4f;
+}
+.light-theme .text-field:focused, .light-theme .password-field:focused,
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #0288d1;
+    -fx-background-color: #ffffff;
+    -fx-control-inner-background: #ffffff;
+    -fx-control-inner-background-alt: #ffffff;
+}
+.light-theme .text-field .text-input, .light-theme .password-field .text-input,
+.text-field .text-input, .password-field .text-input {
+    -fx-text-fill: #1a2a4f;
+}
+
+/* ===== CHECKBOX / RADIO ===== */
+.light-theme .check-box, .check-box { -fx-text-fill: #1a2a4f; }
+.light-theme .check-box .box, .check-box .box {
+    -fx-background-color: #f0f7fa;
+    -fx-border-color: #b0d4e8;
+}
+.light-theme .check-box:selected .box, .check-box:selected .box {
+    -fx-background-color: #0288d1;
+    -fx-border-color: #0288d1;
+}
+.light-theme .check-box:selected .mark, .check-box:selected .mark { -fx-background-color: white; }
+
+.light-theme .radio-button, .radio-button { -fx-text-fill: #1a2a4f; }
+.light-theme .radio-button .radio, .radio-button .radio {
+    -fx-background-color: #f0f7fa;
+    -fx-border-color: #b0d4e8;
+}
+.light-theme .radio-button:selected .radio, .radio-button:selected .radio {
+    -fx-background-color: #0288d1;
+    -fx-border-color: #0288d1;
+}
+.light-theme .radio-button:selected .dot, .radio-button:selected .dot { -fx-background-color: white; }
+
+.light-theme .label, .label { -fx-text-fill: #1a2a4f; }
+
+/* ===== TABPANE (личный кабинет) ===== */
+.tab-pane {
+    -fx-background-color: #e8f4f8;
+}
+.tab-pane .tab-header-area {
+    -fx-background-color: #ffffff;
+    -fx-padding: 0 0 0 16;
+}
+.tab-pane .tab-header-background {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0d4e8;
+    -fx-border-width: 0 0 1 0;
+}
+.tab-pane .tab {
+    -fx-background-color: transparent;
+}
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #5a6e8a;
+    -fx-font-size: 13px;
+}
+.tab-pane .tab:selected {
+    -fx-border-color: transparent transparent #0288d1 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #0288d1;
+    -fx-font-weight: bold;
+}
+.tab-pane .tab:hover .tab-label { -fx-text-fill: #1a2a4f; }
+.tab-pane .tab-content-area { -fx-background-color: #e8f4f8; }
+
+/* ===== SCROLL ===== */
+.light-theme .scroll-pane,
+.light-theme .scroll-pane .viewport,
+.scroll-pane, .scroll-pane > .viewport {
+    -fx-background-color: #e8f4f8;
+}
+.light-theme .scroll-pane, .scroll-pane { -fx-background: #e8f4f8; }
+
+.scroll-bar:vertical .track, .scroll-bar:horizontal .track {
+    -fx-background-color: rgba(176,212,232,0.35);
+}
+.scroll-bar:vertical .thumb, .scroll-bar:horizontal .thumb {
+    -fx-background-color: rgba(2,136,209,0.35);
+}
+
+.light-theme .separator .line, .separator .line { -fx-border-color: #b0d4e8; }
+
+.light-theme .button, .button { -fx-text-fill: #1a2a4f; }

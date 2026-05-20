@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.PassengersController"
+    prefWidth="420" prefHeight="360"
+            style="-fx-background-color: #0b1628;">
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 32;">
+
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="Пассажиры и класс"
+                       style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <VBox spacing="14"
+                  style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;">
+
+                <!-- Взрослые -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Взрослые" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="от 12 лет" style="-fx-text-fill: rgba(180,200,255,0.5); -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="-" onAction="#decreaseAdults"
+                            style="-fx-background-color: #1e2d50; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                    <Label fx:id="adultsLabel" text="1"
+                           style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-pref-width: 32; -fx-alignment: center;"/>
+                    <Button text="+" onAction="#increaseAdults"
+                            style="-fx-background-color: #1e3a50; -fx-text-fill: #4fc3f7; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: #4fc3f7; -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                </HBox>
+
+                <!-- Дети -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Дети" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="2-12 лет" style="-fx-text-fill: rgba(180,200,255,0.5); -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="-" onAction="#decreaseChildren"
+                            style="-fx-background-color: #1e2d50; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                    <Label fx:id="childrenLabel" text="0"
+                           style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-pref-width: 32; -fx-alignment: center;"/>
+                    <Button text="+" onAction="#increaseChildren"
+                            style="-fx-background-color: #1e3a50; -fx-text-fill: #4fc3f7; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: #4fc3f7; -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                </HBox>
+
+                <!-- Младенцы -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label text="Младенцы" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                        <Label text="до 2 лет" style="-fx-text-fill: rgba(180,200,255,0.5); -fx-font-size: 11px;"/>
+                    </VBox>
+                    <Button text="-" onAction="#decreaseInfants"
+                            style="-fx-background-color: #1e2d50; -fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: rgba(255,255,255,0.3); -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                    <Label fx:id="infantsLabel" text="0"
+                           style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-pref-width: 32; -fx-alignment: center;"/>
+                    <Button text="+" onAction="#increaseInfants"
+                            style="-fx-background-color: #1e3a50; -fx-text-fill: #4fc3f7; -fx-font-size: 20px; -fx-font-weight: bold; -fx-pref-width: 36; -fx-pref-height: 36; -fx-background-radius: 18; -fx-border-color: #4fc3f7; -fx-border-width: 1; -fx-border-radius: 18; -fx-cursor: hand; -fx-padding: 0;"/>
+                </HBox>
+
+                <Separator/>
+
+                <!-- Класс -->
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="КЛАСС ОБСЛУЖИВАНИЯ" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <HBox spacing="10" alignment="CENTER">
+                        <RadioButton fx:id="economyRadio" text="Эконом" selected="true"/>
+                        <RadioButton fx:id="premiumRadio" text="Премиум"/>
+                        <RadioButton fx:id="businessRadio" text="Бизнес"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <Button text="Применить" onAction="#handleDone" prefWidth="300"
+                    style="-fx-background-color: #4fc3f7; -fx-text-fill: #0b1628; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 11; -fx-background-radius: 6;"/>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.BookingController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #0b1628;">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="0"
+              style="-fx-background-color: #080f1e; -fx-padding: 0 32; -fx-min-height: 60; -fx-border-color: rgba(79,195,247,0.12); -fx-border-width: 0 0 1 0;">
+            <Button fx:id="backButton" text="← Назад" onAction="#handleBack"
+                    style="-fx-background-color: transparent; -fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-padding: 8 16; -fx-border-color: rgba(79,195,247,0.3); -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <Label text="Бронирование и оплата"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 0 0 0 20;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                    style="-fx-background: transparent; -fx-background-color: transparent;">
+            <HBox spacing="20" style="-fx-padding: 28 40;" alignment="TOP_LEFT">
+
+                <!-- Сводка -->
+                <VBox fx:id="summaryBox" spacing="14" prefWidth="360"
+                      style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;">
+                    <Label text="Сводка бронирования"
+                           style="-fx-text-fill: white; -fx-font-size: 17px; -fx-font-weight: bold;"/>
+                    <Separator/>
+                    <VBox fx:id="summaryContent" spacing="8"/>
+                    <Separator/>
+                    <Label fx:id="totalPriceLabel" text=""
+                           style="-fx-text-fill: #4fc3f7; -fx-font-size: 22px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <!-- Пассажиры + оплата -->
+                <VBox spacing="20" HBox.hgrow="ALWAYS"
+                      style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;">
+
+                    <Label text="Данные пассажиров"
+                           style="-fx-text-fill: white; -fx-font-size: 17px; -fx-font-weight: bold;"/>
+                    <VBox fx:id="passengersForms" spacing="16"/>
+
+                    <Separator/>
+
+                    <Label text="Оплата банковской картой"
+                           style="-fx-text-fill: white; -fx-font-size: 17px; -fx-font-weight: bold;"/>
+
+                    <VBox spacing="12">
+                        <VBox spacing="5">
+                            <Label text="НОМЕР КАРТЫ" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                            <TextField fx:id="cardNumber" prefWidth="340" promptText="0000 0000 0000 0000"/>
+                        </VBox>
+                        <HBox spacing="16">
+                            <VBox spacing="5">
+                                <Label text="СРОК ДЕЙСТВИЯ" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                                <TextField fx:id="cardExpiry" prefWidth="160" promptText="ММ/ГГ"/>
+                            </VBox>
+                            <VBox spacing="5">
+                                <Label text="CVV" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                                <TextField fx:id="cardCVV" prefWidth="100" promptText="000"/>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <Button text="Оплатить" onAction="#handlePayment"
+                            style="-fx-background-color: #e53935; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 13 50; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(229,57,53,0.4), 10, 0, 0, 3); -fx-cursor: hand;"/>
+                </VBox>
+            </HBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

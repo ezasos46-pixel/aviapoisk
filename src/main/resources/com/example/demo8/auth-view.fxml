@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.AuthController"
+            prefWidth="420" prefHeight="480"
+            style="-fx-background-color: #0b1628;">
+    <center>
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 40;">
+
+            <HBox alignment="CENTER" spacing="10">
+                <Label text="✈" style="-fx-text-fill: #4fc3f7; -fx-font-size: 28px;"/>
+                <Label fx:id="titleLabel" text="Вход"
+                       style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <!-- Форма входа -->
+            <VBox fx:id="loginForm" spacing="14"
+                  style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 28; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;"
+                  alignment="CENTER">
+                <VBox spacing="5">
+                    <Label text="НОМЕР ТЕЛЕФОНА" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="loginEmailOrPhone" prefWidth="300" promptText="79001234567"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="ПАРОЛЬ" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <StackPane prefWidth="300">
+                        <PasswordField fx:id="loginPassword" prefWidth="300"/>
+                        <TextField fx:id="loginPasswordVisible" prefWidth="300" visible="false" managed="false"/>
+                        <HBox fx:id="loginPasswordToggleBox" alignment="CENTER_RIGHT" style="-fx-padding: 0 8 0 0;">
+                            <Button fx:id="loginPasswordToggle" text="👁" prefWidth="28" prefHeight="28"
+                                    style="-fx-background-color: transparent; -fx-font-size: 15px; -fx-padding: 0; -fx-cursor: hand; -fx-border-color: transparent;"
+                                    onAction="#toggleLoginPasswordVisibility"/>
+                        </HBox>
+                    </StackPane>
+                </VBox>
+                <Button text="Войти" onAction="#handleLogin" prefWidth="300"
+                        style="-fx-background-color: #e53935; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(229,57,53,0.4), 8, 0, 0, 2);"/>
+                <Label fx:id="switchToRegisterLabel" text="Нет аккаунта? Зарегистрироваться"
+                       style="-fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-underline: true; -fx-cursor: hand;"
+                       onMouseClicked="#switchToRegister"/>
+            </VBox>
+
+            <!-- Форма регистрации -->
+            <VBox fx:id="registerForm" spacing="12" visible="false"
+                  style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: rgba(79,195,247,0.15); -fx-border-width: 1; -fx-border-radius: 12;"
+                  alignment="CENTER">
+                <VBox spacing="5">
+                    <Label text="EMAIL" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="registerEmail" prefWidth="300" promptText="example@mail.ru"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="ТЕЛЕФОН" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="registerPhone" prefWidth="300" promptText="79001234567"/>
+                </VBox>
+                <VBox spacing="5">
+                    <Label text="ПАРОЛЬ (мин. 6 символов)" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                    <StackPane prefWidth="300">
+                        <PasswordField fx:id="registerPassword" prefWidth="300"/>
+                        <TextField fx:id="registerPasswordVisible" prefWidth="300" visible="false" managed="false"/>
+                        <HBox fx:id="registerPasswordToggleBox" alignment="CENTER_RIGHT" style="-fx-padding: 0 8 0 0;">
+                            <Button fx:id="registerPasswordToggle" text="👁" prefWidth="28" prefHeight="28"
+                                    style="-fx-background-color: transparent; -fx-font-size: 15px; -fx-padding: 0; -fx-cursor: hand; -fx-border-color: transparent;"
+                                    onAction="#toggleRegisterPasswordVisibility"/>
+                        </HBox>
+                    </StackPane>
+                </VBox>
+                <CheckBox fx:id="privacyConsentCheckbox" text="Согласен на обработку персональных данных"
+                          prefWidth="300" wrapText="true"/>
+                <Button text="Зарегистрироваться" onAction="#handleRegister" prefWidth="300"
+                        style="-fx-background-color: #e53935; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 6;"/>
+                <Label fx:id="switchToLoginLabel" text="Уже есть аккаунт? Войти"
+                       style="-fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-underline: true; -fx-cursor: hand;"
+                       onMouseClicked="#switchToLogin"/>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

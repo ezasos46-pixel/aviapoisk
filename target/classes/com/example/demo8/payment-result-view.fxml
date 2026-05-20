@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.PaymentResultController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-color: #0b1628;">
+    <center>
+        <VBox spacing="28" alignment="CENTER" style="-fx-padding: 60;">
+
+            <Label fx:id="resultLabel" text=""
+                   style="-fx-text-fill: white; -fx-font-size: 30px; -fx-font-weight: bold;"/>
+
+            <VBox fx:id="successContent" spacing="20" alignment="CENTER" visible="false">
+                <HBox spacing="10" alignment="CENTER">
+                    <Label fx:id="bookingNumberLabel" text=""
+                           style="-fx-text-fill: #4fc3f7; -fx-font-size: 52px; -fx-font-weight: bold; -fx-effect: dropshadow(gaussian, rgba(79,195,247,0.4), 10, 0, 0, 0);"/>
+                    <Button fx:id="copyBookingButton" text="📋" onAction="#handleCopyBookingNumber"
+                            style="-fx-background-color: rgba(79,195,247,0.2); -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 6 10; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+
+                <VBox fx:id="summaryBox" spacing="10" maxWidth="500"
+                      style="-fx-background-color: #131f3e; -fx-background-radius: 12; -fx-padding: 24; -fx-border-color: rgba(79,195,247,0.2); -fx-border-width: 1; -fx-border-radius: 12;"
+                      alignment="CENTER_LEFT">
+                    <Label text="Сводка заказа"
+                           style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+                    <Separator/>
+                    <VBox fx:id="summaryContent" spacing="8"/>
+                </VBox>
+            </VBox>
+
+            <Button text="Вернуться на главную" onAction="#handleBackToMain"
+                    style="-fx-background-color: #4fc3f7; -fx-text-fill: #0b1628; -fx-font-size: 15px; -fx-font-weight: bold; -fx-padding: 13 40; -fx-background-radius: 8; -fx-cursor: hand;"/>
+        </VBox>
+    </center>
+</BorderPane>

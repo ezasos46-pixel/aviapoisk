@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<BorderPane fx:id="rootPane"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.demo8.controllers.ShortestPathController"
+            prefWidth="1200" prefHeight="800"
+            style="-fx-background-color: #0b1628;">
+
+    <top>
+        <HBox fx:id="screenHeader" alignment="CENTER_LEFT" spacing="0"
+              style="-fx-background-color: #080f1e; -fx-padding: 0 32; -fx-min-height: 60; -fx-border-color: rgba(79,195,247,0.12); -fx-border-width: 0 0 1 0;">
+            <Button text="&lt;- Назад" onAction="#handleBack"
+                    style="-fx-background-color: transparent; -fx-text-fill: #4fc3f7; -fx-font-size: 13px; -fx-padding: 8 16; -fx-border-color: rgba(79,195,247,0.3); -fx-border-width: 1; -fx-border-radius: 6; -fx-background-radius: 6; -fx-cursor: hand;"/>
+            <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 0 20;">
+                <Label text="Кратчайший маршрут по цене"
+                       style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox fx:id="centerHBox" spacing="0" style="-fx-background-color: #0b1628;">
+
+            <!-- Левая панель: поиск + результаты -->
+            <VBox fx:id="leftPanel" spacing="0" prefWidth="420" minWidth="380"
+                  style="-fx-border-color: rgba(79,195,247,0.1); -fx-border-width: 0 1 0 0; -fx-background-color: #0b1628;">
+
+                <!-- Панель поиска -->
+                <HBox fx:id="searchPanelTop" spacing="12" alignment="CENTER_LEFT"
+                      style="-fx-padding: 20 20; -fx-background-color: #131f3e; -fx-border-color: rgba(79,195,247,0.1); -fx-border-width: 0 0 1 0;">
+                    <VBox spacing="4">
+                        <Label text="ОТКУДА" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <ComboBox fx:id="fromCombo" prefWidth="160" promptText="Город вылета"/>
+                    </VBox>
+                    <Label text="->" style="-fx-text-fill: rgba(79,195,247,0.4); -fx-font-size: 16px; -fx-padding: 14 2 0 2;"/>
+                    <VBox spacing="4">
+                        <Label text="КУДА" style="-fx-text-fill: #4fc3f7; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <ComboBox fx:id="toCombo" prefWidth="160" promptText="Город прилёта"/>
+                    </VBox>
+                </HBox>
+                <HBox fx:id="searchBtnRow" style="-fx-padding: 12 20; -fx-background-color: #131f3e; -fx-border-color: rgba(79,195,247,0.1); -fx-border-width: 0 0 1 0;">
+                    <Button text="Найти маршрут" onAction="#handleFind"
+                            style="-fx-background-color: #00897b; -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 9 24; -fx-background-radius: 6; -fx-cursor: hand;"/>
+                </HBox>
+
+                <!-- Результаты -->
+                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS"
+                            style="-fx-background: transparent; -fx-background-color: transparent;">
+                    <VBox fx:id="resultBox" spacing="10" style="-fx-padding: 16 20; -fx-background-color: #0b1628;"/>
+                </ScrollPane>
+            </VBox>
+
+            <!-- Правая панель: карта -->
+            <StackPane fx:id="mapPanel" HBox.hgrow="ALWAYS" style="-fx-background-color: #0d1b3e;">
+                <WebView fx:id="mapView"/>
+            </StackPane>
+        </HBox>
+    </center>
+</BorderPane>
