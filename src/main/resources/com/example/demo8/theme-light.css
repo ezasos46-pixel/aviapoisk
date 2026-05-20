@@ -204,7 +204,7 @@
 .tab-pane .tab:hover .tab-label { -fx-text-fill: #1a2a4f; }
 .tab-pane .tab-content-area { -fx-background-color: #e8f4f8; }
 
-/* ===== SCROLL ===== */
+
 .light-theme .scroll-pane,
 .light-theme .scroll-pane .viewport,
 .scroll-pane, .scroll-pane > .viewport {

@@ -7,9 +7,6 @@ import javafx.scene.paint.Color;
 import java.util.Objects;
 import java.util.prefs.Preferences;
 
-/**
- * Тёмная (текущая) и светлая голубая тема оформления.
- */
 public final class ThemeManager {
 
     public enum Theme {
