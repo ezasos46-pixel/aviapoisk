@@ -23,6 +23,7 @@ public class SessionManager {
         return instance;
     }
 
+
     public User getCurrentUser() { return currentUser; }
 
     public void setCurrentUser(User user) {
