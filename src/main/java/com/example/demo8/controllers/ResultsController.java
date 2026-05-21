@@ -142,6 +142,7 @@ public class ResultsController {
                             default -> true;
                         };
                     })
+
                     .sorted(switch (currentSort) {
                         case "time"  -> Comparator.comparing(cf -> cf.getFirstLeg().getDepartureTime());
                         case "duration" -> Comparator.comparingLong(cf -> cf.getFirstLeg().getDurationInHours() + cf.getSecondLeg().getDurationInHours());
