@@ -121,16 +121,14 @@ public final class ThemeManager {
             "#1a2a4f",
             "rgba(2,136,209,0.06)", "rgba(176,212,232,0.6)",
             "#ffffff", "rgba(2,136,209,0.1)",
-            "rgba(90,110,138,0.55)", "#e8f4f8", "rgba(176,212,232,0.4)"
+            "rgba(90,110,138,0.55)", "#e8f4f8", "rgba(1ыЫ76,212,232,0.4)"
     );
 
     private static final String LIGHT_STYLESHEET = "/com/example/demo8/theme-light.css";
     private static final String PREFS_KEY = "app_theme";
-
     private static ThemeManager instance;
     private final Preferences prefs = Preferences.userNodeForPackage(ThemeManager.class);
     private Theme current = Theme.DARK;
-
     private ThemeManager() {
         String saved = prefs.get(PREFS_KEY, Theme.DARK.name());
         try {
@@ -139,26 +137,21 @@ public final class ThemeManager {
             current = Theme.DARK;
         }
     }
-
     public static ThemeManager getInstance() {
         if (instance == null) {
             instance = new ThemeManager();
         }
         return instance;
     }
-
     public Theme getCurrent() {
         return current;
     }
-
     public Palette getPalette() {
         return current == Theme.LIGHT ? LIGHT : DARK;
     }
-
     public String getToggleIcon() {
         return current == Theme.LIGHT ? "☀" : "🌙";
     }
-
     public String getToggleTooltip() {
         return current == Theme.LIGHT
                 ? "Светлая тема (нажмите для тёмной)"
