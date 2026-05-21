@@ -2,7 +2,7 @@
     -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ===== COMBOBOX ===== */
+
 .combo-box {
     -fx-background-color: rgba(255,255,255,0.08);
     -fx-background-radius: 6;
@@ -35,7 +35,7 @@
 .combo-box .list-cell:hover { -fx-background-color: rgba(79,195,247,0.18); -fx-text-fill: white; }
 .combo-box .list-cell:filled:selected { -fx-background-color: rgba(79,195,247,0.3); -fx-text-fill: white; }
 
-/* ===== DATEPICKER ===== */
+
 .date-picker {
     -fx-background-color: rgba(255,255,255,0.08);
     -fx-background-radius: 6;
@@ -53,7 +53,7 @@
 .date-picker .arrow-button { -fx-background-color: transparent; }
 .date-picker .arrow-button .arrow { -fx-background-color: rgba(255,255,255,0.5); }
 
-/* ===== ТЁМНЫЙ КАЛЕНДАРЬ ===== */
+
 .date-picker-popup {
     -fx-background-color: #131f3e;
     -fx-border-color: #4fc3f7;
@@ -142,7 +142,7 @@
     -fx-text-fill: rgba(255,255,255,0.25);
 }
 
-/* ===== TEXTFIELD / PASSWORDFIELD ===== */
+
 .text-field, .password-field {
     -fx-background-color: #1e2d50;
     -fx-text-fill: white;
@@ -179,7 +179,7 @@
     -fx-text-fill: white;
 }
 
-/* ===== CHECKBOX ===== */
+
 .check-box { -fx-text-fill: #c8d8ff; -fx-font-size: 13px; }
 .check-box .box {
     -fx-background-color: rgba(255,255,255,0.1);
@@ -192,7 +192,7 @@
 .check-box:selected .box { -fx-background-color: #4fc3f7; -fx-border-color: #4fc3f7; }
 .check-box:selected .mark { -fx-background-color: #0d1b3e; }
 
-/* ===== RADIOBUTTON ===== */
+
 .radio-button { -fx-text-fill: #c8d8ff; -fx-font-size: 13px; }
 .radio-button .radio {
     -fx-background-color: rgba(255,255,255,0.1);
@@ -203,7 +203,7 @@
 .radio-button:selected .radio { -fx-border-color: #4fc3f7; }
 .radio-button:selected .dot { -fx-background-color: #4fc3f7; -fx-background-radius: 4; }
 
-/* ===== BUTTON ===== */
+
 .button {
     -fx-text-fill: white;
     -fx-background-radius: 6;
@@ -212,7 +212,7 @@
     -fx-border-color: transparent;
 }
 
-/* ===== TABPANE ===== */
+
 .tab-pane {
     -fx-background-color: #0b1628;
     -fx-tab-min-width: 160;
@@ -248,7 +248,7 @@
 .tab-pane .tab:hover .tab-label { -fx-text-fill: rgba(180,200,255,0.85); }
 .tab-pane .tab-content-area { -fx-background-color: #0b1628; }
 
-/* ===== SCROLLPANE ===== */
+
 .scroll-pane {
     -fx-background-color: transparent;
     -fx-background: transparent;
@@ -274,13 +274,13 @@
     -fx-background-color: rgba(255,255,255,0.2);
 }
 
-/* ===== SEPARATOR ===== */
+
 .separator .line { -fx-border-color: rgba(255,255,255,0.1); }
 
-/* ===== LABEL ===== */
+
 .label { -fx-text-fill: #e0e8ff; }
 
-/* ===== ALERT / DIALOG ===== */
+
 .dialog-pane {
     -fx-background-color: #131f3e;
     -fx-border-color: rgba(79,195,247,0.3);
@@ -300,7 +300,7 @@
 }
 .dialog-pane .button-bar .button:hover { -fx-background-color: #81d4fa; }
 
-/* ===== TOOLTIP ===== */
+
 .tooltip {
     -fx-background-color: #1a2744;
     -fx-text-fill: white;
