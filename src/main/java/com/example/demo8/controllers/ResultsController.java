@@ -143,9 +143,9 @@ public class ResultsController {
                         };
                     })
                     .sorted(switch (currentSort) {
-                        case "time"     -> Comparator.comparing(cf -> cf.getFirstLeg().getDepartureTime());
+                        case "time"  -> Comparator.comparing(cf -> cf.getFirstLeg().getDepartureTime());
                         case "duration" -> Comparator.comparingLong(cf -> cf.getFirstLeg().getDurationInHours() + cf.getSecondLeg().getDurationInHours());
-                        default         -> Comparator.comparing(cf -> cf.getTotalPrice()
+                        default      -> Comparator.comparing(cf -> cf.getTotalPrice()
                                 .multiply(new BigDecimal(getClassMultiplier()))
                                 .multiply(new BigDecimal(searchParams.getTotalPassengers())));
                     })
@@ -155,7 +155,6 @@ public class ResultsController {
             else displayConnectingFlights(filtered);
             return;
         }
-
         List<RoundTrip> filtered = allRoundTrips.stream()
                 .filter(rt -> {
                     if (rt.getOutboundFlight() == null) return false;
